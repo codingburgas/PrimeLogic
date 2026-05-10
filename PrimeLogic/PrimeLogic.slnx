@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="PrimeLogic/PrimeLogic.vcxproj" />
+  <Project Path="PrimeLogic/PrimeLogic.vcxproj" Id="d195fd60-e875-41bf-b704-86729244782e" />
 </Solution>
