@@ -23,11 +23,6 @@ static const int FONT_SPACING = 1;
 
 void initUiFont()
 {
-    /*
-    Какво: Зарежда системния шрифт Segoe UI за по-четим текст.
-    Как: Опитва да зареди TTF файла от Windows; ако не успее, ползва шрифта на Raylib.
-    Защо: Стандартният Raylib шрифт е малък и пикселизиран, неудобен за ученически проект.
-    */
     g_uiFont = LoadFontEx("C:\\Windows\\Fonts\\segoeui.ttf", 32, nullptr, 0);
 
     if (g_uiFont.texture.id == 0)
@@ -241,12 +236,6 @@ void drawIntInput(UiLayout* layout, const char* label, int* value, int fieldId)
 
 static bool isClickOnOpenDropdownOptions()
 {
-    /*
-    Какво: Проверява дали мишката е върху списъка на отворено падащо меню.
-    Как: Ако има активен overlay, прави правоъгълник под кутията и проверява за съвпадение.
-    Защо: Когато меню е отворено, кликове върху неговите опции не трябва да се възприемат
-         от долните полета (които биха получили клика през "наслагването").
-    */
     if (!g_overlayActive)
     {
         return false;
@@ -260,4 +249,228 @@ static bool isClickOnOpenDropdownOptions()
     };
 
     return CheckCollisionPointRec(GetMousePosition(), optionsArea);
+}
+void drawDropdown(UiLayout* layout, const char* label, const char* options[], int optionCount, int* selectedIndex, int dropdownId)
+{
+    int textY = layout->y + (layout->rowHeight - LABEL_FONT_SIZE) / 2;
+    drawUiText(layout->x, textY, label, LABEL_FONT_SIZE, DARKGRAY);
+
+    Rectangle rectangle = {
+        (float)(layout->x + 170),
+        (float)layout->y,
+        (float)(layout->width - 170),
+        (float)layout->rowHeight
+    };
+
+    bool isOpen = (g_openDropdownId == dropdownId);
+    bool clickIsOnOpenOptions = isClickOnOpenDropdownOptions();
+    bool boxClicked = isMouseReleasedInside(rectangle) && !clickIsOnOpenOptions;
+
+    if (boxClicked)
+    {
+        g_openDropdownId = isOpen ? 0 : dropdownId;
+        isOpen = !isOpen;
+    }
+
+    DrawRectangleRec(rectangle, isOpen ? Color{ 235, 246, 255, 255 } : RAYWHITE);
+    DrawRectangleLinesEx(rectangle, 1.0f, isOpen ? BLUE : GRAY);
+
+    const char* shown = (*selectedIndex >= 0 && *selectedIndex < optionCount)
+        ? options[*selectedIndex]
+        : "(select)";
+    drawUiText((int)rectangle.x + 10, textY, shown, LABEL_FONT_SIZE, BLACK);
+
+    int triX = (int)(rectangle.x + rectangle.width) - 18;
+    int triY = (int)(rectangle.y + rectangle.height / 2.0f) - 3;
+    DrawTriangle(
+        Vector2{ (float)triX, (float)triY },
+        Vector2{ (float)(triX + 6), (float)(triY + 8) },
+        Vector2{ (float)(triX + 12), (float)triY },
+        DARKGRAY);
+
+    layout->y += layout->rowHeight + 8;
+
+    if (isOpen)
+    {
+        int storedCount = optionCount;
+        if (storedCount > 64)
+        {
+            storedCount = 64;
+        }
+
+        for (int index = 0; index < storedCount; index++)
+        {
+            g_overlayOptions[index] = options[index];
+        }
+
+        g_overlayActive = true;
+        g_overlayRect = rectangle;
+        g_overlayOptionCount = storedCount;
+        g_overlaySelected = selectedIndex;
+        g_overlayDropdownId = dropdownId;
+        g_overlayRowHeight = layout->rowHeight;
+    }
+}
+
+void flushOverlays()
+{
+    if (!g_overlayActive)
+    {
+        return;
+    }
+
+    for (int index = 0; index < g_overlayOptionCount; index++)
+    {
+        Rectangle optionRect = {
+            g_overlayRect.x,
+            g_overlayRect.y + g_overlayRect.height + index * g_overlayRect.height,
+            g_overlayRect.width,
+            g_overlayRect.height
+        };
+
+        bool hovered = CheckCollisionPointRec(GetMousePosition(), optionRect);
+        DrawRectangleRec(optionRect, hovered ? Color{ 220, 235, 250, 255 } : RAYWHITE);
+        DrawRectangleLinesEx(optionRect, 1.0f, GRAY);
+
+        int optTextY = (int)optionRect.y + (g_overlayRowHeight - LABEL_FONT_SIZE) / 2;
+        drawUiText((int)optionRect.x + 10, optTextY, g_overlayOptions[index], LABEL_FONT_SIZE, BLACK);
+
+        if (hovered && IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
+        {
+            *g_overlaySelected = index;
+            g_openDropdownId = 0;
+        }
+    }
+
+    Rectangle entireArea = {
+        g_overlayRect.x,
+        g_overlayRect.y,
+        g_overlayRect.width,
+        g_overlayRect.height * (1 + g_overlayOptionCount)
+    };
+
+    if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON) &&
+        g_openDropdownId == g_overlayDropdownId &&
+        !CheckCollisionPointRec(GetMousePosition(), entireArea))
+    {
+        g_openDropdownId = 0;
+    }
+
+    g_overlayActive = false;
+}
+
+void drawTableHeader(UiLayout* layout, const char* columns[], const int widths[], int columnCount)
+{
+    int currentX = layout->x;
+    int textY = layout->y + (layout->rowHeight - TABLE_FONT_SIZE) / 2;
+
+    for (int index = 0; index < columnCount; index++)
+    {
+        DrawRectangle(currentX, layout->y, widths[index], layout->rowHeight, Color{ 220, 225, 230, 255 });
+        DrawRectangleLines(currentX, layout->y, widths[index], layout->rowHeight, GRAY);
+        drawUiText(currentX + 8, textY, columns[index], TABLE_FONT_SIZE, BLACK);
+        currentX += widths[index];
+    }
+
+    layout->y += layout->rowHeight;
+}
+
+void drawTableRow(UiLayout* layout, const char* values[], const int widths[], int columnCount)
+{
+    int currentX = layout->x;
+    int textY = layout->y + (layout->rowHeight - TABLE_FONT_SIZE) / 2;
+
+    for (int index = 0; index < columnCount; index++)
+    {
+        DrawRectangle(currentX, layout->y, widths[index], layout->rowHeight, RAYWHITE);
+        DrawRectangleLines(currentX, layout->y, widths[index], layout->rowHeight, LIGHTGRAY);
+        drawUiText(currentX + 8, textY, values[index], TABLE_FONT_SIZE, BLACK);
+        currentX += widths[index];
+    }
+
+    layout->y += layout->rowHeight;
+}
+
+void beginScrollableArea(int x, int y, int width, int viewHeight, int contentHeight, int* scrollOffset)
+{
+    Rectangle area = { (float)x, (float)y, (float)width, (float)viewHeight };
+
+    if (CheckCollisionPointRec(GetMousePosition(), area))
+    {
+        float wheel = GetMouseWheelMove();
+        *scrollOffset -= (int)(wheel * 30.0f);
+    }
+
+    int maxScroll = contentHeight - viewHeight;
+    if (maxScroll < 0)
+    {
+        maxScroll = 0;
+    }
+
+    if (*scrollOffset < 0)
+    {
+        *scrollOffset = 0;
+    }
+    if (*scrollOffset > maxScroll)
+    {
+        *scrollOffset = maxScroll;
+    }
+
+    BeginScissorMode(x, y, width, viewHeight);
+}
+
+void endScrollableArea()
+{
+    EndScissorMode();
+}
+
+int drawTabBar(int x, int y, int width, int height, const char* labels[], int tabCount, int activeIndex)
+{
+    int tabWidth = width / tabCount;
+    int newActive = activeIndex;
+
+    DrawRectangle(x, y + height - 1, width, 1, GRAY);
+
+    for (int index = 0; index < tabCount; index++)
+    {
+        int tabX = x + index * tabWidth;
+        Rectangle rectangle = { (float)tabX, (float)y, (float)tabWidth, (float)height };
+
+        bool isActive = (index == activeIndex);
+        bool hovered = CheckCollisionPointRec(GetMousePosition(), rectangle);
+
+        Color background;
+        if (isActive)
+        {
+            background = RAYWHITE;
+        }
+        else if (hovered)
+        {
+            background = Color{ 225, 235, 245, 255 };
+        }
+        else
+        {
+            background = Color{ 235, 240, 245, 255 };
+        }
+
+        DrawRectangleRec(rectangle, background);
+        DrawRectangleLines(tabX, y, tabWidth, height, GRAY);
+
+        if (isActive)
+        {
+            DrawRectangle(tabX + 1, y + height - 4, tabWidth - 1, 4, BLUE);
+        }
+
+        int labelWidth = textWidth(labels[index], LABEL_FONT_SIZE);
+        int labelX = tabX + (tabWidth - labelWidth) / 2;
+        int labelY = y + (height - LABEL_FONT_SIZE) / 2;
+        drawUiText(labelX, labelY, labels[index], LABEL_FONT_SIZE, isActive ? DARKBLUE : DARKGRAY);
+
+        if (hovered && IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
+        {
+            newActive = index;
+        }
+    }
+
+    return newActive;
 }
