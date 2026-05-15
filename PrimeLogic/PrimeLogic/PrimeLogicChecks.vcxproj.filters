@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files" />
+    <Filter Include="Source Files" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\common\constants.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\common\models.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\data\csv_split.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\data\matches_file.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\data\teams_file.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\logic\match_manager.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\logic\goals_recursion.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\logic\searching.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\logic\sorting.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\logic\standings.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\logic\team_manager.h"><Filter>Header Files</Filter></ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\data\csv_split.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\data\matches_file.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\data\teams_file.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\logic\match_manager.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\logic\goals_recursion.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\logic\searching.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\logic\sorting.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\logic\standings.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\logic\team_manager.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="tests\checks_main.cpp"><Filter>Source Files</Filter></ClCompile>
+  </ItemGroup>
+</Project>
