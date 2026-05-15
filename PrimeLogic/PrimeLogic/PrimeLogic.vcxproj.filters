@@ -1,22 +1,159 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="PrimeLogic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
+	<ItemGroup>
+		<Filter Include="Header Files\Common" />
+		<Filter Include="Header Files\Data" />
+		<Filter Include="Header Files\Logic" />
+		<Filter Include="Header Files\Presentation" />
+		<Filter Include="Source Files\Data" />
+		<Filter Include="Source Files\Logic" />
+		<Filter Include="Source Files\Presentation" />
+		<Filter Include="Source Files\Platform" />
+		<Filter Include="Docs" />
+		<Filter Include="Data Files" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="include\common\app_state.h">
+			<Filter>Header Files\Common</Filter>
+		</ClInclude>
+		<ClInclude Include="include\common\constants.h">
+			<Filter>Header Files\Common</Filter>
+		</ClInclude>
+		<ClInclude Include="include\common\models.h">
+			<Filter>Header Files\Common</Filter>
+		</ClInclude>
+		<ClInclude Include="include\data\csv_split.h">
+			<Filter>Header Files\Data</Filter>
+		</ClInclude>
+		<ClInclude Include="include\data\matches_file.h">
+			<Filter>Header Files\Data</Filter>
+		</ClInclude>
+		<ClInclude Include="include\data\teams_file.h">
+			<Filter>Header Files\Data</Filter>
+		</ClInclude>
+		<ClInclude Include="include\logic\match_manager.h">
+			<Filter>Header Files\Logic</Filter>
+		</ClInclude>
+		<ClInclude Include="include\logic\goals_recursion.h">
+			<Filter>Header Files\Logic</Filter>
+		</ClInclude>
+		<ClInclude Include="include\logic\searching.h">
+			<Filter>Header Files\Logic</Filter>
+		</ClInclude>
+		<ClInclude Include="include\logic\sorting.h">
+			<Filter>Header Files\Logic</Filter>
+		</ClInclude>
+		<ClInclude Include="include\logic\standings.h">
+			<Filter>Header Files\Logic</Filter>
+		</ClInclude>
+		<ClInclude Include="include\logic\team_manager.h">
+			<Filter>Header Files\Logic</Filter>
+		</ClInclude>
+		<ClInclude Include="include\presentation\main_window.h">
+			<Filter>Header Files\Presentation</Filter>
+		</ClInclude>
+		<ClInclude Include="include\presentation\matches_panel.h">
+			<Filter>Header Files\Presentation</Filter>
+		</ClInclude>
+		<ClInclude Include="include\presentation\search_panel.h">
+			<Filter>Header Files\Presentation</Filter>
+		</ClInclude>
+		<ClInclude Include="include\presentation\statistics_panel.h">
+			<Filter>Header Files\Presentation</Filter>
+		</ClInclude>
+		<ClInclude Include="include\presentation\standings_panel.h">
+			<Filter>Header Files\Presentation</Filter>
+		</ClInclude>
+		<ClInclude Include="include\presentation\status_bar.h">
+			<Filter>Header Files\Presentation</Filter>
+		</ClInclude>
+		<ClInclude Include="include\presentation\teams_panel.h">
+			<Filter>Header Files\Presentation</Filter>
+		</ClInclude>
+		<ClInclude Include="include\presentation\raylib_ui.h">
+			<Filter>Header Files\Presentation</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="src\data\csv_split.cpp">
+			<Filter>Source Files\Data</Filter>
+		</ClCompile>
+		<ClCompile Include="src\data\matches_file.cpp">
+			<Filter>Source Files\Data</Filter>
+		</ClCompile>
+		<ClCompile Include="src\data\teams_file.cpp">
+			<Filter>Source Files\Data</Filter>
+		</ClCompile>
+		<ClCompile Include="src\logic\match_manager.cpp">
+			<Filter>Source Files\Logic</Filter>
+		</ClCompile>
+		<ClCompile Include="src\logic\goals_recursion.cpp">
+			<Filter>Source Files\Logic</Filter>
+		</ClCompile>
+		<ClCompile Include="src\logic\searching.cpp">
+			<Filter>Source Files\Logic</Filter>
+		</ClCompile>
+		<ClCompile Include="src\logic\sorting.cpp">
+			<Filter>Source Files\Logic</Filter>
+		</ClCompile>
+		<ClCompile Include="src\logic\standings.cpp">
+			<Filter>Source Files\Logic</Filter>
+		</ClCompile>
+		<ClCompile Include="src\logic\team_manager.cpp">
+			<Filter>Source Files\Logic</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>Source Files\Platform</Filter>
+		</ClCompile>
+		<ClCompile Include="src\presentation\main_window.cpp">
+			<Filter>Source Files\Presentation</Filter>
+		</ClCompile>
+		<ClCompile Include="src\presentation\matches_panel.cpp">
+			<Filter>Source Files\Presentation</Filter>
+		</ClCompile>
+		<ClCompile Include="src\presentation\search_panel.cpp">
+			<Filter>Source Files\Presentation</Filter>
+		</ClCompile>
+		<ClCompile Include="src\presentation\statistics_panel.cpp">
+			<Filter>Source Files\Presentation</Filter>
+		</ClCompile>
+		<ClCompile Include="src\presentation\standings_panel.cpp">
+			<Filter>Source Files\Presentation</Filter>
+		</ClCompile>
+		<ClCompile Include="src\presentation\status_bar.cpp">
+			<Filter>Source Files\Presentation</Filter>
+		</ClCompile>
+		<ClCompile Include="src\presentation\teams_panel.cpp">
+			<Filter>Source Files\Presentation</Filter>
+		</ClCompile>
+		<ClCompile Include="src\presentation\raylib_ui.cpp">
+			<Filter>Source Files\Presentation</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="README.md">
+			<Filter>Docs</Filter>
+		</None>
+		<None Include="docs\architecture.md">
+			<Filter>Docs</Filter>
+		</None>
+		<None Include="docs\block-diagram.md">
+			<Filter>Docs</Filter>
+		</None>
+		<None Include="docs\presentation-outline.md">
+			<Filter>Docs</Filter>
+		</None>
+		<None Include="docs\sprint-backlog.md">
+			<Filter>Docs</Filter>
+		</None>
+		<None Include="docs\sprint-summary.md">
+			<Filter>Docs</Filter>
+		</None>
+		<None Include="data\matches.csv">
+			<Filter>Data Files</Filter>
+		</None>
+		<None Include="data\teams.csv">
+			<Filter>Data Files</Filter>
+		</None>
+	</ItemGroup>
 </Project>
