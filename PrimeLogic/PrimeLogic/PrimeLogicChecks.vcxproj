@@ -71,7 +71,7 @@
 	<PropertyGroup>
 		<OutDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</OutDir>
 		<IntDir>$(ProjectDir)build\obj\$(ProjectName)\$(Configuration)\$(Platform)\</IntDir>
-		<TargetName>SportsScoreManagerChecks</TargetName>
+		<TargetName>PrimeLogicChecks</TargetName>
 		<LocalDebuggerWorkingDirectory>$(ProjectDir)</LocalDebuggerWorkingDirectory>
 	</PropertyGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -6,26 +6,52 @@
 #include "presentation/standings_panel.h"
 #include "presentation/status_bar.h"
 #include "presentation/teams_panel.h"
+#include "presentation/raylib_ui.h"
 
 #include "raylib.h"
 
 void renderApp(AppState* state)
 {
+    /*
+    Какво: Рисува основния екран с табове за всеки раздел.
+    Как: Заглавие най-горе, лента с табове отдолу, активният панел в средата, статус най-долу.
+    Защо: Един раздел в даден момент - интерфейсът е по-чист и по-лесен за използване.
+    */
     ClearBackground(Color{ 245, 247, 250, 255 });
-    DrawText("PrimeLogic - Sports Score Manager", 24, 18, 28, DARKBLUE);
 
-    UiLayout leftLayout = { 24, 64, 430, 30 };
-    UiLayout rightLayout = { 490, 64, 760, 30 };
+    drawUiText(24, 18, "PrimeLogic - Sports Score Manager", 32, DARKBLUE);
 
-    renderTeamsSection(state, &leftLayout);
-    addPanelSpace(&leftLayout, 18);
-    renderMatchesSection(state, &leftLayout);
+    const char* tabLabels[5] = { "Teams", "Matches", "Standings", "Search", "Statistics" };
+    state->activeTab = drawTabBar(24, 64, 1232, 44, tabLabels, 5, state->activeTab);
 
-    renderSearchSection(state, &rightLayout);
-    addPanelSpace(&rightLayout, 18);
-    renderStatisticsSection(state, &rightLayout);
-    addPanelSpace(&rightLayout, 18);
-    renderStandingsSection(state, &rightLayout);
-    addPanelSpace(&rightLayout, 18);
-    renderStatusSection(state, &rightLayout);
+    UiLayout layout;
+    layout.x = 32;
+    layout.y = 124;
+    layout.width = 1216;
+    layout.rowHeight = 36;
+
+    if (state->activeTab == 0)
+    {
+        renderTeamsSection(state, &layout);
+    }
+    else if (state->activeTab == 1)
+    {
+        renderMatchesSection(state, &layout);
+    }
+    else if (state->activeTab == 2)
+    {
+        renderStandingsSection(state, &layout);
+    }
+    else if (state->activeTab == 3)
+    {
+        renderSearchSection(state, &layout);
+    }
+    else if (state->activeTab == 4)
+    {
+        renderStatisticsSection(state, &layout);
+    }
+
+    renderStatusSection(state, 24, 818, 1232);
+
+    flushOverlays();
 }

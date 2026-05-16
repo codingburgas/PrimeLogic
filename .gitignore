@@ -1,10 +1,10 @@
-/.vs/
-/.vscode/
-/build/
-/Debug/
-/Release/
-/x64/
-/Win32/
+.vs/
+.vscode/
+build/
+Debug/
+Release/
+x64/
+Win32/
 *.VC.db
 *.VC.opendb
 *.suo
@@ -15,5 +15,4 @@
 *.log
 *.tlog
 *.lastbuildstate
-tests/temp_teams.csv
-tests/temp_matches.csv
+**/tests/temp_*.csv

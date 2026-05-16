@@ -72,8 +72,8 @@ void renderSearchSection(AppState* state, UiLayout* layout)
         return;
     }
 
-    const char* columns[4] = { "Team", "Played", "Goal Diff", "Points" };
-    const int widths[4] = { 600, 200, 200, 216 };
+    const char* columns[4] = { "Team Name", "Played", "Goal Difference", "Points" };
+    const int widths[4] = { 460, 220, 280, 256 };
     drawTableHeader(layout, columns, widths, 4);
 
     int viewHeight = 460;

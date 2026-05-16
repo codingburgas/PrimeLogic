@@ -8,7 +8,7 @@ int splitCsvLine(char* line, char* tokens[], int maxTokens)
 
     while (line[index] != '\0' && count < maxTokens)
     {
-        if (line[index] == ','  line[index] == '\r'
+        if (line[index] == ',' || line[index] == '\r' ||
             line[index] == '\n')
         {
             line[index] = '\0';

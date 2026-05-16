@@ -9,6 +9,11 @@
 
 static const char* getTeamNameById(const Team teams[], int teamCount, int teamId)
 {
+    /*
+    Какво: Намира име на отбор по неговото ID за показване.
+    Как: Търси в масива с отбори и връща намереното име или "Unknown".
+    Защо: Таблицата с мачове е по-четима с имена, а не само с ID-та.
+    */
     for (int index = 0; index < teamCount; index++)
     {
         if (teams[index].id == teamId)
@@ -22,6 +27,11 @@ static const char* getTeamNameById(const Team teams[], int teamCount, int teamId
 
 void renderMatchesSection(AppState* state, UiLayout* layout)
 {
+    /*
+    Какво: Рисува полетата за въвеждане на мач и таблицата с мачове.
+    Как: Падащи менюта за избор на отбори по име, цифрови полета за голове, текстово за дата.
+    Защо: Изборът на отбор по име е по-удобен от въвеждане на ID.
+    */
     beginPanel(layout, "Matches");
 
     if (state->teamCount < 2)
@@ -65,16 +75,16 @@ void renderMatchesSection(AppState* state, UiLayout* layout)
             strcpy_s(state->statusMessage, MAX_STATUS_LENGTH, "Please select both home and away teams.");
         }
         else if (addMatch(
-            state->matches,
-            &state->matchCount,
-            homeId,
-            awayId,
-            state->newMatchHomeGoals,
-            state->newMatchAwayGoals,
-            state->newMatchDate,
-            state->teams,
-            state->teamCount,
-            state->statusMessage))
+                state->matches,
+                &state->matchCount,
+                homeId,
+                awayId,
+                state->newMatchHomeGoals,
+                state->newMatchAwayGoals,
+                state->newMatchDate,
+                state->teams,
+                state->teamCount,
+                state->statusMessage))
         {
             calculateStandings(
                 state->teams,
@@ -96,7 +106,7 @@ void renderMatchesSection(AppState* state, UiLayout* layout)
 
     addPanelSpace(layout, 12);
 
-    const char* columns[5] = { "Date", "Home", "Score", "Away", "ID" };
+    const char* columns[5] = { "Date", "Home Team", "Score", "Away Team", "Match ID" };
     const int widths[5] = { 200, 380, 140, 380, 116 };
     drawTableHeader(layout, columns, widths, 5);
 

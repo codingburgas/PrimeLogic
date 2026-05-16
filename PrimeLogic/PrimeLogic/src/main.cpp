@@ -1,4 +1,5 @@
 #include "presentation/main_window.h"
+#include "presentation/raylib_ui.h"
 
 #include "common/app_state.h"
 #include "common/constants.h"
@@ -57,6 +58,7 @@ int main()
 
     InitWindow(1280, 860, "PrimeLogic - Sports Score Manager");
     SetTargetFPS(60);
+    initUiFont();
 
     while (!WindowShouldClose())
     {
@@ -67,6 +69,7 @@ int main()
         saveApplicationData(&appState);
     }
 
+    unloadUiFont();
     CloseWindow();
     return 0;
 }

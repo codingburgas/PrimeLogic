@@ -1,3 +1,5 @@
+#include "logic/searching.h"
+
 #include <cctype>
 #include <cstring>
 

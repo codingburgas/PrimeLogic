@@ -8,6 +8,11 @@
 
 void renderStandingsSection(AppState* state, UiLayout* layout)
 {
+    /*
+    Какво: Рисува таблицата с класиране и бутона за сортиране.
+    Как: При натискане на бутона извиква Bubble Sort и показва редовете в таблица.
+    Защо: Потребителят трябва да вижда отборите подредени по точки.
+    */
     beginPanel(layout, "Standings");
 
     if (drawButton(layout, "Sort by Points", 180))
@@ -20,8 +25,11 @@ void renderStandingsSection(AppState* state, UiLayout* layout)
 
     addPanelSpace(layout, 12);
 
-    const char* columns[8] = { "Team", "P", "W", "D", "L", "GF", "GA", "Pts" };
-    const int widths[8] = { 480, 100, 100, 100, 100, 100, 100, 136 };
+    const char* columns[8] = {
+        "Team Name", "Played", "Wins", "Draws", "Losses",
+        "Goals Scored", "Goals Conceded", "Points"
+    };
+    const int widths[8] = { 280, 110, 100, 100, 110, 160, 200, 156 };
     drawTableHeader(layout, columns, widths, 8);
 
     int viewHeight = 500;
