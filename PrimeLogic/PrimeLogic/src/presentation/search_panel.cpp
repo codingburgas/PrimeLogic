@@ -9,11 +9,6 @@
 
 static bool isBlankText(const char* text)
 {
-    /*
-    Какво: Проверява дали текстът за търсене е празен или съдържа само интервали.
-    Как: Обхожда символите, докато намери символ, който не е интервал.
-    Защо: Търсене с празен текст би било объркващо за потребителя.
-    */
     for (int index = 0; text[index] != '\0'; index++)
     {
         if (!isspace((unsigned char)text[index]))
@@ -27,11 +22,6 @@ static bool isBlankText(const char* text)
 
 void renderSearchSection(AppState* state, UiLayout* layout)
 {
-    /*
-    Какво: Рисува търсене по име на отбор и таблица с резултати.
-    Как: Чете текста, извиква Linear Search и показва намерените редове.
-    Защо: Потребителят трябва бързо да намира отбор в класирането.
-    */
     beginPanel(layout, "Search");
     drawTextInput(layout, "Team Name", state->searchQuery, MAX_NAME_LENGTH, 7);
 

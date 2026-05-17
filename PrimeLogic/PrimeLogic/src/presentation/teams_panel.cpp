@@ -8,11 +8,6 @@
 
 void renderTeamsSection(AppState* state, UiLayout* layout)
 {
-    /*
-    Какво: Рисува полето за добавяне на отбор и таблицата с отбори.
-    Как: Използва Raylib полета и бутон, извиква addTeam и пресмята класирането.
-    Защо: Потребителите трябва лесно да добавят и виждат отборите.
-    */
     beginPanel(layout, "Teams");
     drawTextInput(layout, "Team Name", state->newTeamName, MAX_NAME_LENGTH, 1);
 

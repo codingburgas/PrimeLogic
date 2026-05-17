@@ -9,11 +9,6 @@
 
 static const char* getTeamNameById(const Team teams[], int teamCount, int teamId)
 {
-    /*
-    Какво: Намира име на отбор по неговото ID за показване.
-    Как: Търси в масива с отбори и връща намереното име или "Unknown".
-    Защо: Таблицата с мачове е по-четима с имена, а не само с ID-та.
-    */
     for (int index = 0; index < teamCount; index++)
     {
         if (teams[index].id == teamId)
@@ -27,11 +22,6 @@ static const char* getTeamNameById(const Team teams[], int teamCount, int teamId
 
 void renderMatchesSection(AppState* state, UiLayout* layout)
 {
-    /*
-    Какво: Рисува полетата за въвеждане на мач и таблицата с мачове.
-    Как: Падащи менюта за избор на отбори по име, цифрови полета за голове, текстово за дата.
-    Защо: Изборът на отбор по име е по-удобен от въвеждане на ID.
-    */
     beginPanel(layout, "Matches");
 
     if (state->teamCount < 2)

@@ -8,11 +8,6 @@
 
 void renderStandingsSection(AppState* state, UiLayout* layout)
 {
-    /*
-    Какво: Рисува таблицата с класиране и бутона за сортиране.
-    Как: При натискане на бутона извиква Bubble Sort и показва редовете в таблица.
-    Защо: Потребителят трябва да вижда отборите подредени по точки.
-    */
     beginPanel(layout, "Standings");
 
     if (drawButton(layout, "Sort by Points", 180))

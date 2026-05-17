@@ -8,11 +8,6 @@
 
 void renderStatisticsSection(AppState* state, UiLayout* layout)
 {
-    /*
-    Какво: Рисува секцията за общ брой голове.
-    Как: При натискане на бутона извиква рекурсивната функция за сумиране.
-    Защо: Така GUI-то показва резултата от изискваната рекурсия.
-    */
     beginPanel(layout, "Statistics");
 
     if (drawButton(layout, "Calculate Total Goals", 240))
