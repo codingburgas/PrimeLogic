@@ -5,10 +5,11 @@
 # PrimeLogic — Football Score Manager
 
 <p align="center">
-  <a href="#-about-the-project"><img src="https://img.shields.io/badge/ABOUT%20THE%20PROJECT-2196F3?style=for-the-badge" /></a>
-  <a href="#-how-to-build-and-run"><img src="https://img.shields.io/badge/HOW%20TO%20BUILD%20AND%20RUN-4CAF50?style=for-the-badge" /></a>
-  <a href="#️-technologies"><img src="https://img.shields.io/badge/TECHNOLOGIES-FF9800?style=for-the-badge" /></a>
-  <a href="#-our-team"><img src="https://img.shields.io/badge/OUR%20TEAM-9C27B0?style=for-the-badge" /></a>
+  <a href="#about-the-project"><img src="https://img.shields.io/badge/ABOUT%20THE%20PROJECT-2196F3?style=for-the-badge" /></a>
+  <a href="#how-to-build-and-run"><img src="https://img.shields.io/badge/HOW%20TO%20BUILD%20AND%20RUN-4CAF50?style=for-the-badge" /></a>
+  <a href="#technologies"><img src="https://img.shields.io/badge/TECHNOLOGIES-FF9800?style=for-the-badge" /></a>
+  <a href="#documents"><img src="https://img.shields.io/badge/DOCUMENTS-E91E63?style=for-the-badge" /></a>
+  <a href="#our-team"><img src="https://img.shields.io/badge/OUR%20TEAM-9C27B0?style=for-the-badge" /></a>
 </p>
 
 ---
@@ -90,6 +91,13 @@ PrimeLogic/
 │   ├── checks_main.cpp                 — unit checks for logic functions
 │   ├── sample_teams.csv                — test fixture: teams
 │   └── sample_matches.csv              — test fixture: matches
+├── docs/
+│   ├── PrimeLogic_Documentation.docx  — full technical documentation
+│   ├── PrimeLogic_Presentation.pptx   — project presentation slides
+│   ├── PrimeLogic_Logo.png             — project logo
+│   ├── PrimeLogic_diagram.png          — architecture diagram image
+│   ├── architecture.md                 — architecture notes
+│   └── block-diagram.md                — block diagram notes
 ├── third_party/
 │   └── raylib/                         — bundled Raylib headers and .lib/.dll
 └── PrimeLogic.slnx                     — Visual Studio solution
@@ -144,9 +152,9 @@ g++ -std=c++17 src/main.cpp src/presentation/*.cpp src/logic/*.cpp src/data/*.cp
   <a href="https://visualstudio.microsoft.com/" title="Visual Studio 2022"><img src="https://skillicons.dev/icons?i=visualstudio" alt="Visual Studio" width="50" /></a>&nbsp;&nbsp;
   <a href="https://git-scm.com/" title="Git"><img src="https://skillicons.dev/icons?i=git" alt="Git" width="50" /></a>&nbsp;&nbsp;
   <a href="https://github.com/" title="GitHub"><img src="https://skillicons.dev/icons?i=github" alt="GitHub" width="50" /></a>&nbsp;&nbsp;
-  <a href="https://www.raylib.com/" title="Raylib — GUI & rendering"><img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/raylib-gu84w0m6k8djljr8ek4sq9.png/raylib-j326e49obzmg0j0h2zyt.png?_a=DATAiZAAZAA0" alt="Raylib" width="50" /></a>&nbsp;&nbsp;
+  <a href="https://www.raylib.com/" title="Raylib — GUI & rendering"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Raylib_logo.png" alt="Raylib" width="50" /></a>&nbsp;&nbsp;
   <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint" title="PowerPoint"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg/960px-Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg.png" alt="PowerPoint" width="50" /></a>&nbsp;&nbsp;
-  <a href="https://www.microsoft.com/en-us/microsoft-365/word" title="Word"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg/960px-Microsoft_Office_Word_%282025%E2%80%93present%29.svg.png" alt="Word" width="50" /></a>&nbsp;&nbsp;
+  <a href="https://www.microsoft.com/en-us/microsoft-365/word" title="Word"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg/1280px-Microsoft_Office_Word_%282025%E2%80%93present%29.svg.png" alt="Word" width="50" /></a>&nbsp;&nbsp;
   <a href="https://www.microsoft.com/en-us/microsoft-teams/group-chat-software" title="Microsoft Teams"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/1280px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png" alt="Teams" width="50" /></a>
 </p>
 
@@ -159,31 +167,31 @@ g++ -std=c++17 src/main.cpp src/presentation/*.cpp src/logic/*.cpp src/data/*.cp
 | CSV (custom parser) | Persistent data storage via `splitCsvLine` |
 
 ---
- 
+
 ## 📄 Documents
- 
-All project documents are stored in the [`docs/`](docs/) folder of this repository.
- 
+
+All project documents are stored in the [`PrimeLogic/PrimeLogic/docs/`](PrimeLogic/PrimeLogic/docs/) folder of this repository.
+
 <p align="center">
-  <a href="docs/PrimeLogic_Documentation.docx">
+  <a href="PrimeLogic/PrimeLogic/docs/PrimeLogic_Documentation.docx">
     <img src="https://img.shields.io/badge/📄%20Documentation-Word%20Document-2196F3?style=for-the-badge&logo=microsoftword&logoColor=white" alt="Documentation" />
   </a>
   &nbsp;&nbsp;
-  <a href="docs/PrimeLogic_Presentation.pptx">
+  <a href="PrimeLogic/PrimeLogic/docs/PrimeLogic_Presentation.pptx">
     <img src="https://img.shields.io/badge/📊%20Presentation-PowerPoint%20Slides-E91E63?style=for-the-badge&logo=microsoftpowerpoint&logoColor=white" alt="Presentation" />
   </a>
   &nbsp;&nbsp;
-  <a href="docs/PrimeLogic_diagram.png">
-    <img src="https://img.shields.io/badge/🗂️%20Block%20Diagram-draw.io-FF9800?style=for-the-badge" alt="Block Diagram" />
+  <a href="PrimeLogic/PrimeLogic/docs/PrimeLogic_diagram.png">
+    <img src="https://img.shields.io/badge/🗂️%20Block%20Diagram-PNG%20Image-FF9800?style=for-the-badge" alt="Block Diagram" />
   </a>
 </p>
 
 | Document | Description |
 |---|---|
-| [📄 PrimeLogic_Documentation.docx](docs/PrimeLogic_Documentation.docx) | Full technical documentation — assignment, team, architecture, algorithms, data model, build guide |
-| [📊 PrimeLogic_Presentation.pptx](docs/PrimeLogic_Presentation.pptx) | 12-slide project presentation — overview, features, architecture, algorithms, team |
-| [🗂️ block-diagram.drawio](docs/PrimeLogic_diagram.png) | Interactive architecture block diagram |
- 
+| [📄 PrimeLogic_Documentation.docx](PrimeLogic/PrimeLogic/docs/PrimeLogic_Documentation.docx) | Full technical documentation — assignment, team, architecture, algorithms, data model |
+| [📊 PrimeLogic_Presentation.pptx](PrimeLogic/PrimeLogic/docs/PrimeLogic_Presentation.pptx) | 9-slide project presentation — overview, features, architecture, algorithms, team |
+| [🗂️ PrimeLogic_diagram.png](PrimeLogic/PrimeLogic/docs/PrimeLogic_diagram.png) | Architecture block diagram image |
+
 ---
 
 ## 👥 Our Team
