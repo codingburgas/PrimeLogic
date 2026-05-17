@@ -5,11 +5,11 @@
 # PrimeLogic — Football Score Manager
 
 <p align="center">
-  <a href="#about-the-project"><img src="https://img.shields.io/badge/ABOUT%20THE%20PROJECT-2196F3?style=for-the-badge" /></a>
-  <a href="#how-to-build-and-run"><img src="https://img.shields.io/badge/HOW%20TO%20BUILD%20AND%20RUN-4CAF50?style=for-the-badge" /></a>
-  <a href="#technologies"><img src="https://img.shields.io/badge/TECHNOLOGIES-FF9800?style=for-the-badge" /></a>
-  <a href="#documents"><img src="https://img.shields.io/badge/DOCUMENTS-E91E63?style=for-the-badge" /></a>
-  <a href="#our-team"><img src="https://img.shields.io/badge/OUR%20TEAM-9C27B0?style=for-the-badge" /></a>
+  <a href="#-about-the-project"><img src="https://img.shields.io/badge/ABOUT%20THE%20PROJECT-2196F3?style=for-the-badge" /></a>
+  <a href="#-how-to-build-and-run"><img src="https://img.shields.io/badge/HOW%20TO%20BUILD%20AND%20RUN-4CAF50?style=for-the-badge" /></a>
+  <a href="#-technologies"><img src="https://img.shields.io/badge/TECHNOLOGIES-FF9800?style=for-the-badge" /></a>
+  <a href="#-documents"><img src="https://img.shields.io/badge/DOCUMENTS-E91E63?style=for-the-badge" /></a>
+  <a href="#-our-team"><img src="https://img.shields.io/badge/OUR%20TEAM-9C27B0?style=for-the-badge" /></a>
 </p>
 
 ---
